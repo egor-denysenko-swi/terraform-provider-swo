@@ -1,9 +1,8 @@
 package typex
 
 import (
+	"cmp"
 	"reflect"
-
-	"golang.org/x/exp/constraints"
 )
 
 // SliceEqual returns true if the two slices are exactly the same; i.e., they
@@ -89,7 +88,7 @@ func RefCompare[T any](a, b T, compare func(T, T) bool) bool {
 }
 
 // Less returns true if a is less than b, for any ordered type T.
-func Less[T constraints.Ordered](a, b T) bool {
+func Less[T cmp.Ordered](a, b T) bool {
 	return a < b
 }
 
